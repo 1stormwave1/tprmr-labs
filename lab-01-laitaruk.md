@@ -1,9 +1,9 @@
 
 # Лабораторна робота 1: Проєктування REST API
 
-**ПІБ:** Лайтарук І. Ф.
-**Група:** КНІТ-63М
-**Дата:** 19.11.2025
+- **ПІБ:** Лайтарук І. Ф.
+- **Група:** КНІТ-63М
+- **Дата:** 19.11.2025
 
 ## 1. Аналіз предметної області
 
@@ -19,7 +19,7 @@
 
 ### Обов'язкові та необов'язкові поля
 
-###**Обов’язкові поля:**  
+**Обов’язкові поля:**  
 - **User**
   - username  
   - region  
@@ -51,11 +51,11 @@
   - ownedAt (генерується автоматично)  
   - id (генерується автоматично)
 
-# 2. Проєктування API Endpoints
+## 2. Проєктування API Endpoints
 
 ---
 
-## Таблиця API Endpoints
+### Таблиця API Endpoints
 
 | **HTTP метод** | **Шлях URI** | **Опис** | **Статус-коди** |
 |----------------|--------------|----------|------------------|
@@ -71,14 +71,14 @@
 
 ---
 
-## Фільтрація задач
+### Фільтрація задач
 
-GET /api/matches?result=win 
-GET /api/users?region=EUW
-GET /api/items?rarity=legendary&itemName=Rabadon%27s%20Deathcap
-GET /api/champions?role=top&difficulty=2
+- GET /api/matches?result=win 
+- GET /api/users?region=EUW
+- GET /api/items?rarity=legendary&itemName=Rabadon%27s%20Deathcap
+- GET /api/champions?role=top&difficulty=2
 
-## Обґрунтування
+### Обґрунтування
 
 - Використовуються іменники у множині (`/users`, `/champions`, `/matches`, `/tasks`), що відповідає ресурсно-орієнтованому підходу.
 - Метод **GET** застосовується виключно для читання даних, є безпечним та ідемпотентним — повторні запити не змінюють стан системи.
@@ -88,7 +88,7 @@ GET /api/champions?role=top&difficulty=2
 - Фільтрація реалізована через **query parameters** (наприклад, `/api/matches?result=win`).
 - Спеціальні ендпоінти, такий як `/api/matches/last`, оформлені як окремі ресурси, оскільки вони повертають специфічні підмножини даних із чітким змістовним значенням.
 
-# 3. Структури даних
+## 3. Структури даних
 
 ---
 
@@ -102,7 +102,7 @@ GET /api/champions?role=top&difficulty=2
   "releaseDate": "2011-12-14T00:00:00Z"
 }
 ```
-###CreateChampionDTO
+### CreateChampionDTO
 ```json
 {
   "name": "Zeri",
@@ -118,7 +118,7 @@ GET /api/champions?role=top&difficulty=2
 - difficulty — обов’язкове, числовий рівень складності (1–5)
 - releaseDate — обов’язкове, дата виходу чемпіона
 
-###UpdateChampionDTO
+### UpdateChampionDTO
 ```json
 {
   "role": "top",
@@ -172,7 +172,7 @@ GET /api/champions?role=top&difficulty=2
 }
 ```
 
-## 4. Обробка помилок
+### 4. Обробка помилок
 
 ---
 
